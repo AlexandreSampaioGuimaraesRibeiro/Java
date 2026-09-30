@@ -1,11 +1,15 @@
-import main.java.com.example.ConsultaCandidatosTSE.model;
-import main.java.com.example.ConsultaDecandidatosTSI.service;
+package com.example.ConsultaCandidatosTSE.controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.ConsultaCandidatosTSE.model.Model;
 
 @Controller
-public class ConsultaCandidatosTSEController {
-    private final CandidatoTSEService candidatoTSE;
+public class ConsultaCandidatosTseController {
+    private final com.example.ConsultaCandidatosTSE.service.CandidatoTSEService candidatoTSE;
 
-    public ConsultaCandidatosTSEController(CandidatoTSEService candidatoTSE){
+    public ConsultaCandidatosTseController(com.example.ConsultaCandidatosTSE.service.CandidatoTSEService candidatoTSE){
         this.candidatoTSE = candidatoTSE;
     }
 

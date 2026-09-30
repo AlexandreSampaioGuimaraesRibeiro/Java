@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+
+
+.imagemDeFundo {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    background-color: #0d0d0d; /* preenche o que sobrar ao redor da imagem */
+    background-size: 85%;      /* imagem "menor" = aparece mais dela na tela */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: auto;
+    padding: 2rem 1rem;
+}
+
+
+.bg-login {
+    background-image: url("/images/imagemGalo.jpg");
+}
+
+.bg-recover,
+.bg-home {
+    background-image: url("/images/imagemEscudo.png");
+}
+
+.bg-register {
+    background-image: url("/images/imagemEstadio.png");
+}
+
+
+
+.login-container {
+    position: relative;
+    z-index: 1;
+
+    width: 400px;
+    max-width: 90vw;
+
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.login-form form {
+    width: 100%;
+}
+
+.login-title {
+    color: #fff;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    margin-top: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #222;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.login-form input::placeholder {
+    color: #555;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #81B1C3;
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 0 0 3px rgba(129, 177, 195, 0.35);
+}
+
+.login-button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.login-button-container button {
+    width: 100%;
+    padding: 0.85rem;
+    background-color: #81B1C3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.login-button-container button:hover {
+    background-color: #6a9bb0;
+}
+
+.login-button-container button:active {
+    transform: scale(0.98);
+}
+
+.login-redirect-options {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    padding-top: 1.25rem;
+    font-weight: bolder;
+    font-size: small;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.login-redirect-options a {
+    color: #bfe3f0;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.login-redirect-options a:hover {
+    text-decoration: underline;
+}
+
+.login-redirect-options a:last-child {
+    color: #FF9466;
+}
+
+
+
+.register-container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 600px;
+
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.register-title {
+    color: #fff;
+    font-weight: bolder;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.register-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    width: 100%;
+}
+
+.register-fields input {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #222;
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.register-fields input::placeholder {
+    color: #555;
+}
+
+.register-fields input:focus {
+    outline: none;
+    border-color: #81B1C3;
+    background-color: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 0 0 3px rgba(129, 177, 195, 0.35);
+}
+
+.register-fields input[name="nome"],
+.register-fields input[name="email"],
+.register-fields input[name="endereco"] {
+    grid-column: 1 / -1;
+}
+
+.register-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.register-button-container button {
+    width: 100%;
+    padding: 0.85rem;
+    background-color: #81B1C3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.register-button-container button:hover {
+    background-color: #6a9bb0;
+}
+
+.register-button-container button:active {
+    transform: scale(0.98);
+}
+
+.register-redirect-options {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bolder;
+    font-size: small;
+    margin-top: 1.25rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.register-redirect-options a {
+    color: #bfe3f0;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.register-redirect-options a:hover {
+    text-decoration: underline;
+}
+
+
+
+.home-container {
+    position: relative;
+    z-index: 1;
+
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+
+    padding: 3rem 3.5rem;
+    text-align: center;
+    max-width: 500px;
+}
+
+.home-container h2 {
+    color: #fff;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.home-message {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.home-btn {
+    padding: 0.75rem 2rem;
+    background-color: #FF743C;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.home-btn:hover {
+    background-color: #e5622c;
+}
+
+.home-btn:active {
+    transform: scale(0.98);
+}
+
+
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 90vw;
+        padding: 2rem 1.5rem;
+    }
+
+    .register-container {
+        width: 90vw;
+        padding: 1.5rem;
+    }
+
+    .register-fields {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,29 +1,36 @@
 abstract public class DiaDeTrabalho {
-    private static final int MINUTOS_JORNADA = 8 * 60;
-    private static final int MINUTOS_ALMOCO = 60;
-    private LocalDate data;
-    private Hora horaEntrada;
-    private Hora horaSaida;
-    private int saldoMinutos;
+    protected int minutosJonada;
+    protected int minutosAlmoco;
+    protected LocalDate data;
+    protected Hora horaEntrada;
+    protected Hora horaSaida;
+    protected int saldoMinutos;
 
-    public DiaDeTrabalho(LocalDate data, Hora horaEntrada) {
+    protected DiaDeTrabalho(LocalDate data, Hora horaEntrada, int MINUTOS_JORNADA, int MINUTOS_ALMOCO) {
         this.data = data;
         this.horaEntrada = horaEntrada;
-       
-        
+        this.minutosJonada = MINUTOS_JORNADA;
+        this.minutosAlmoco = MINUTOS_ALMOCO;
     }
 
-    public Hora registrarSaida(Hora horaSaida) {
+    protected Hora registrarSaida(Hora horaSaida) {
+        if (finalizado()) {
+            throw new IllegalStateException("Dia de trabalho já finalizado");
+        }
         this.horaSaida = horaSaida;
+        retornaSaldoMinutos();
         return this.horaSaida;
     }
 
-    public int retornaSaldoMinutos() {
-        saldoMinutos = horaSaida.diferenciaEmMinutos(horaEntrada) - MINUTOS_JORNADA - MINUTOS_ALMOCO;
+    protected int retornaSaldoMinutos() {
+        if (!finalizado()) {
+            throw new IllegalStateException("Dia de trabalho não finalizado");
+        }
+        saldoMinutos = horaSaida.diferenciaEmMinutos(horaEntrada) - minutosJonada - minutosAlmoco;
         return saldoMinutos;
     }
 
-    public boolean finalizado() {
+    protected boolean finalizado() {
         return horaSaida != null;
     }
 }

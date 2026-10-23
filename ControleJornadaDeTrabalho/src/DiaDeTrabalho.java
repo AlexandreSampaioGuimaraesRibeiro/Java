@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 abstract public class DiaDeTrabalho {
     protected int minutosJonada;
     protected int minutosAlmoco;

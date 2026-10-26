@@ -7,19 +7,21 @@ abstract public class DiaDeTrabalho {
     protected Hora horaEntrada;
     protected Hora horaSaida;
     protected int saldoMinutos;
+    protected Hora saidaProgramada;
 
-    protected DiaDeTrabalho(LocalDate data, Hora horaEntrada, int MINUTOS_JORNADA, int MINUTOS_ALMOCO) {
+    protected DiaDeTrabalho(LocalDate data, Hora horaEntrada, int MINUTOS_JORNADA, int MINUTOS_ALMOCO, Hora saidaProgramada) {
         this.data = data;
         this.horaEntrada = horaEntrada;
         this.minutosJonada = MINUTOS_JORNADA;
         this.minutosAlmoco = MINUTOS_ALMOCO;
+        this.saidaProgramada = saidaProgramada;
     }
 
-    protected Hora registrarSaida(Hora horaSaida) {
+    protected Hora registrarSaida(Hora Saida) {
         if (finalizado()) {
             throw new IllegalStateException("Dia de trabalho já finalizado");
         }
-        this.horaSaida = horaSaida;
+        this.horaSaida = Saida;
         retornaSaldoMinutos();
         return this.horaSaida;
     }

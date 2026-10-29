@@ -11,7 +11,7 @@ public class Plantonista extends DiaDeTrabalho  {
             throw new IllegalStateException("Não é possível fazer plantão, tempo mínimo entre plantões não respeitado");
         }
         localDate data = LocalDate.now();
-        super(data, horaEntrada, MINUTOS_JORNADA, 0);
+        super(data, horaEntrada, MINUTOS_JORNADA,horaEntrada.incrementar(MINUTOS_JORNADA));
     }
 
     @Override

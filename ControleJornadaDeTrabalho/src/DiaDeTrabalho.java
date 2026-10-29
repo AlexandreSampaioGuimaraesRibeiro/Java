@@ -9,10 +9,9 @@ abstract public class DiaDeTrabalho {
     protected int saldoMinutos;
     protected Hora saidaProgramada;
 
-    protected DiaDeTrabalho(LocalDate data, Hora horaEntrada, int MINUTOS_JORNADA, int MINUTOS_ALMOCO, Hora saidaProgramada) {
+    protected DiaDeTrabalho(LocalDate data, Hora horaEntrada, int MINUTOS_ALMOCO, Hora saidaProgramada) {
         this.data = data;
         this.horaEntrada = horaEntrada;
-        this.minutosJonada = MINUTOS_JORNADA;
         this.minutosAlmoco = MINUTOS_ALMOCO;
         this.saidaProgramada = saidaProgramada;
     }

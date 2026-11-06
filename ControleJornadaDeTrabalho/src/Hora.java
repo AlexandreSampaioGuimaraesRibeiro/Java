@@ -11,9 +11,9 @@ public class Hora {
 
     public Hora incrementar(int minutos) {
         this.minutos += minutos;
-        if (this.minutos >= 60) {
-            this.horas += this.minutos / 60;
-            this.minutos = this.minutos % 60;
+        for(int i =this.minutos;i>=60;i-=60){
+            this.horas += i / 60;
+            this.minutos = i % 60;
         }
         return this;
     }
@@ -30,7 +30,11 @@ public class Hora {
 
         return estaNaFrente;
     }
-
+    /**
+     * 
+     * @param outraHora
+     * @return diferencia em minutos entre as duas horas.
+     */
     public int diferenciaEmMinutos(Hora outraHora) {
         int diferenca = 0;
         if (this.estaNaFrente(outraHora)) {
